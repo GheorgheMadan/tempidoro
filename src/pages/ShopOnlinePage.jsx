@@ -1,19 +1,27 @@
 import { Link } from "react-router-dom";
 import { useGlobalProducts } from "../context/GlobalProducts";
+import Spinner from "../components/Spinner";
 
 export default function ShopOnlinePage() {
 
-    const { categoriesList } = useGlobalProducts()
-
-    console.log(categoriesList);
-
+    const { categoriesList, loadingCategories } = useGlobalProducts()
 
     return (
-        <>
-            <section className="cards-section-bg">
-
-                <div className="cards-section">
-                    {categoriesList.map(c => {
+        <main>
+            <section className="bg-gray">
+                <div className="container-err">
+                    {loadingCategories && <Spinner />}
+                    {!categoriesList && !loadingCategories &&
+                        <div>
+                            <h1 className="errText">Errore del server nessuna categoria disponibile</h1>
+                        </div>}
+                    {categoriesList?.length === 0 && !loadingCategories &&
+                        <div>
+                            <h1 className="errText">Nessuna categoria disponibile</h1>
+                        </div>}
+                </div>
+                <div className="cards-section width-85">
+                    {categoriesList?.map(c => {
                         return (
                             <div key={c.id} className="card-section">
                                 <div className="icon-img p-icon-img">
@@ -52,6 +60,6 @@ export default function ShopOnlinePage() {
                     </Link>
                 </div>
             </section>
-        </>
+        </main>
     );
 }

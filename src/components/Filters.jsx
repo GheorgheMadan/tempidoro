@@ -10,7 +10,7 @@ export default memo(function Filters({
     handleFilter,
     filters
 }) {
-    // ✅ Fallback sicuro: evito errori se filtersName è null/undefined
+    // Fallback sicuro: evito errori se filtersName è null/undefined
     const safe = useMemo(() => ({
         brand: filtersName?.brand ?? [],
         collection: filtersName?.collection ?? [],
@@ -30,10 +30,10 @@ export default memo(function Filters({
         modello_gioielleria: filtersName?.modello_gioielleria ?? [],
     }), [filtersName]);
 
-    // 🔧 Utility: normalizza stringhe (trim) ma senza rompere numeri/null
+    // Utility: normalizza stringhe (trim) ma senza rompere numeri/null
     const norm = (v) => (typeof v === 'string' ? v.trim() : v);
 
-    // 🔧 Utility: renderizza <option> evitando spazi sporchi nei valori
+    // Utility: renderizza <option> evitando spazi sporchi nei valori
     const renderOptions = (arr) => (
         Array.isArray(arr)
             ? arr.map((v, i) => {

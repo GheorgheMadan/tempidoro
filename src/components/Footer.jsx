@@ -10,7 +10,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer>
+        <footer className="bg-gray">
             <div className="container-footer">
                 <div>
                     <h1 className="title-footer">Tempi d'<span className="orange-text title-footer">Oro</span></h1>

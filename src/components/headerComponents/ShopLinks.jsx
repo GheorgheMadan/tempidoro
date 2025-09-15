@@ -1,10 +1,11 @@
 import { NavLink } from "react-router-dom"
 import { useState, useRef, useEffect } from "react"
 import { useGlobalProducts } from "../../context/GlobalProducts"
+import Spinner from "../Spinner"
 
 export default function ShopLinks() {
 
-    const { deslugyfyCategory, categoriesList } = useGlobalProducts()
+    const { deslugyfyCategory, categoriesList, loadingCategories } = useGlobalProducts()
 
     const [toggleMenu, setToggleMenu] = useState(false)
 
@@ -45,7 +46,16 @@ export default function ShopLinks() {
                         className={`dropdown-anim ${toggleMenu ? "fade-in" : "fade-out"}`}>
                         <ul>
                             <li><NavLink to="/shop-online">Tutte le Categorie</NavLink></li>
-                            {categoriesList.map((c) => <li key={c.id}><NavLink to={`/shop-online/${c.category_name}`}>{deslugyfyCategory(c.category_name)}</NavLink></li>)}
+                            {loadingCategories && <Spinner />}
+                            {!categoriesList && !loadingCategories &&
+                                <div>
+                                    <h4 className="errSmall">Errore del server nessuna categoria disponibile</h4>
+                                </div>}
+                            {categoriesList?.length === 0 && !loadingCategories &&
+                                <div>
+                                    <h4 className="errSmall">Nessuna categoria disponibile</h4>
+                                </div>}
+                            {categoriesList?.map((c) => <li key={c.id}><NavLink to={`/shop-online/${c.category_name}`}>{deslugyfyCategory(c.category_name)}</NavLink></li>)}
                         </ul>
                     </div>
                 )}

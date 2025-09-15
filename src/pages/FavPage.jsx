@@ -6,7 +6,7 @@ export default function FavPage() {
     const { fav } = useGlobalProducts();
 
     return (
-        <main className="category-page">
+        <main className="category-page width-85">
             <h1 className="text-center title">I tuoi articoli preferiti</h1>
             <h4>{fav.length} articoli</h4>
             {fav.length === 0 && <h2 className='text-center'>Non hai ancora aggiunto nessun prodotto ai preferiti.</h2>}

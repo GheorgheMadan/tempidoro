@@ -1,6 +1,6 @@
 export default function OreficeriaPage() {
     return (
-        <>
+        <main>
             {/*Jumbotron section */}
             <div className="jumbotron-slider" style={{ backgroundColor: "#f5f2f2" }}>
                 <div className="slider-track">
@@ -14,8 +14,8 @@ export default function OreficeriaPage() {
                 </div>
             </div>
             {/* SERVIZI SECTION */}
-            <section className="cards-section-bg">
-                <div className="cards-section">
+            <section className="bg-gray">
+                <div className="cards-section width-85">
                     <div className="card-section">
                         <div className="icon-img p-icon-img">
                             <img src="./oreficeriaPage/saldatura.svg" alt="saldatura" />
@@ -85,29 +85,27 @@ export default function OreficeriaPage() {
                 </div>
             </section >
             {/* DESCRIPTION SECTION */}
-            <main>
-                <section className="homepage-description-section">
-                    <h1 className="text-center text-title mb-5 title">
-                        Gioielli per ogni occasione
-                    </h1>
-                    <p>
-                        Tempi d'Oro è un negozio specializzato nella vendita di gioielli, oreficeria, orologeria e oggettistica in oro e argento. Vengono eseguite riparazioni specializzate di pendoli e orologi da polso, anche di marche prestigiose. Tempi D'oro è nata nel 1958 e vanta una lunga storia di tradizione e passione per i gioielli: da generazioni, siamo al fianco dei clienti per offrire una attenta consulenza nella scelta degli oggetti più appropriati alle proprie necessità sia per i regali più preziosi sia per i doni dedicati speciali dedicati a bambini e ragazzi (infatti da qualche tempo collaboriamo con brand come Lego per venire incontro alle richieste di grandi e piccini).
-                    </p>
-                </section>
-                {/* BRAND LOGO SECTION */}
-                <section className="container-merch-img ">
-                    <div className="img-row img-row2">
-                        <img src="./oreficeriaPage/calvin-klein.png" alt="calvin klein" />
-                        <img src="./oreficeriaPage/brosway.png" alt="brosway" />
-                        <img src="./otticaPage/scuderia-ferrari.png" alt="scuderia ferrari" />
-                        <img src="./oreficeriaPage/festina.png" alt="festina" />
-                        <img src="./oreficeriaPage/lotus.png" alt="versace" />
-                        <img src="./oreficeriaPage/jaguar.jpg" alt="jaguar" />
-                        <img src="./oreficeriaPage/gemoro.png" alt="gemoro" />
-                        <img src="./oreficeriaPage/calypso.jpg" alt="calypso" />
-                    </div>
-                </section>
-            </main>
+            <section className="description-section mt-5 mb-5 width-85">
+                <h1 className="text-center text-title mb-5 title">
+                    Gioielli per ogni occasione
+                </h1>
+                <p>
+                    Tempi d'Oro è un negozio specializzato nella vendita di gioielli, oreficeria, orologeria e oggettistica in oro e argento. Vengono eseguite riparazioni specializzate di pendoli e orologi da polso, anche di marche prestigiose. Tempi D'oro è nata nel 1958 e vanta una lunga storia di tradizione e passione per i gioielli: da generazioni, siamo al fianco dei clienti per offrire una attenta consulenza nella scelta degli oggetti più appropriati alle proprie necessità sia per i regali più preziosi sia per i doni dedicati speciali dedicati a bambini e ragazzi (infatti da qualche tempo collaboriamo con brand come Lego per venire incontro alle richieste di grandi e piccini).
+                </p>
+            </section>
+            {/* BRAND LOGO SECTION */}
+            <section className="container-merch-img ">
+                <div className="img-row img-row2">
+                    <img src="./oreficeriaPage/calvin-klein.png" alt="calvin klein" />
+                    <img src="./oreficeriaPage/brosway.png" alt="brosway" />
+                    <img src="./otticaPage/scuderia-ferrari.png" alt="scuderia ferrari" />
+                    <img src="./oreficeriaPage/festina.png" alt="festina" />
+                    <img src="./oreficeriaPage/lotus.png" alt="versace" />
+                    <img src="./oreficeriaPage/jaguar.jpg" alt="jaguar" />
+                    <img src="./oreficeriaPage/gemoro.png" alt="gemoro" />
+                    <img src="./oreficeriaPage/calypso.jpg" alt="calypso" />
+                </div>
+            </section>
             {/* IMGS STORE */}
             <section className="container-img-oreficeria">
                 <img src="./oreficeriaPage/oref1.jpg" alt="" />
@@ -127,6 +125,6 @@ export default function OreficeriaPage() {
                     </a>
                 </div>
             </section>
-        </>
+        </main>
     );
 }

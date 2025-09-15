@@ -1,8 +1,16 @@
+/* ==========================================================================
+   1) HOME: SEZIONE "IN EVIDENZA"
+   ========================================================================== */
+
 .evidence-section {
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
 }
+
+/* ==========================================================================
+   2) CAROSELLO (Slick) — spacing & arrows
+   ========================================================================== */
 
 .slick-slide {
     padding: 0 7.5px;
@@ -46,21 +54,24 @@
     font-size: 20px;
 }
 
+/* ==========================================================================
+   3) HOME: SEZIONE "STORIA"
+   ========================================================================== */
 
-/* SEZIONE DESCRIZIONE HOMEPAGE */
-.homepage-description-section {
-    margin-top: 80px;
-}
-
-.homepage-description-section>p {
+/* NOTE: nel JSX usi .homepage-description-section; qui è .description-section > p.
+         Se vuoi applicare a quella sezione, duplica o cambia selettore.
+*/
+.description-section>p {
     font-size: 18px;
     text-align: center;
     margin-bottom: 80px;
     line-height: 30px;
 }
 
+/* ==========================================================================
+   4) HOME: SEZIONE OREFICERIA (bg + overlay dorati)
+   ========================================================================== */
 
-/* SECTION OREFICERIA home page */
 .section-bg-tempi {
     background-image:
         radial-gradient(ellipse farthest-corner at right bottom,
@@ -79,13 +90,15 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-
     height: 576px;
     width: 100%;
     padding: 7rem 10.5rem;
 }
 
-/* REGOLE GENERALI */
+/* ==========================================================================
+   5) REGOLE GENERALI (blocchi centrati su bg con testo chiaro)
+   ========================================================================== */
+
 .container-content {
     display: flex;
     flex-direction: column;
@@ -107,21 +120,21 @@
     margin-bottom: 32px;
 }
 
-/* REGOLE GENERALI */
 .container-content i {
     font-weight: 500;
     font-size: 18px;
 }
 
-/* REGOLE GENERALI */
 .container-content span {
     align-self: flex-end;
     font-weight: 500;
     margin-top: 10px;
 }
 
+/* ==========================================================================
+   6) HOME + OTTICA PAGE: SEZIONE OTTICA
+   ========================================================================== */
 
-/* SEZIONE OTTICA HomePage e OtticaPage */
 .section-ottica {
     display: flex;
 }
@@ -130,14 +143,14 @@
     max-height: 500px !important;
 }
 
-/* IMMAGINE IN OTTICA PAGE */
+/* Immagine laterale */
 .section-ottica img {
     width: 700px;
     height: 100%;
     object-fit: cover;
 }
 
-/* Riga arancione in sezione ottica in home page */
+/* Riga arancione del titolo in home-ottica */
 .section-ottica .container-content-ottica .title-ottica-home:after {
     content: '';
     display: block;
@@ -148,17 +161,15 @@
     border-radius: 2px;
 }
 
-/*************************************************/
+/* ==========================================================================
+   7) OTTICA PAGE — contenuti & tipografia
+   ========================================================================== */
 
-/*************************************************/
-/* OTTICA PAGE */
 .content-ottica {
     font-weight: 500;
     letter-spacing: 1px;
-
 }
 
-/* Riga arancione in ottica page */
 .title-ottica-page::after {
     content: '';
     display: block;
@@ -174,7 +185,7 @@
     padding: 90px 100px 40px 172px;
 }
 
-/* PADDING IN OTTICA PAGE */
+/* Padding alternativo per specifica sezione (id) */
 #p-ottica-page {
     padding: 40px 100px 40px 172px !important;
 }
@@ -184,7 +195,10 @@
     margin-top: 30px;
 }
 
-/* SEZIONE LOGO BRANDS */
+/* ==========================================================================
+   8) LOGHI/MARCHI (righe immagini)
+   ========================================================================== */
+
 .container-merch-img {
     width: 85%;
     margin: 55px auto;
@@ -194,10 +208,9 @@
     display: flex;
     justify-content: center;
     gap: 45px;
-    /* spazio uniforme tra immagini */
     margin-bottom: 15px;
     flex-wrap: nowrap;
-    /* impedisce il wrapping */
+    /* evita wrapping */
 }
 
 .img-margin-right {
@@ -213,7 +226,10 @@
     gap: 20px;
 }
 
-/* sezione contatti in ottica page */
+/* ==========================================================================
+   9) CONTATTI OTTICA (sezione con bg)
+   ========================================================================== */
+
 .section-bg-ottica {
     background-image:
         radial-gradient(ellipse farthest-corner at right bottom,
@@ -232,7 +248,6 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-
     height: 545px;
     width: 100%;
     padding: 7rem 10.5rem;
@@ -247,10 +262,10 @@
     letter-spacing: 0.5px;
 }
 
-/*************************************************/
+/* ==========================================================================
+   10) OREFICERIA PAGE (gallery + hero bg)
+   ========================================================================== */
 
-/*************************************************/
-/* OREFICERIA PAGE */
 .container-img-oreficeria {
     display: flex;
 }
@@ -277,7 +292,6 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-
     height: 545px;
     width: 100%;
     padding: 7rem 10.5rem;
@@ -287,10 +301,10 @@
     justify-content: center;
 }
 
-/*************************************************/
+/* ==========================================================================
+   11) SHOP ONLINE PAGE (hero)
+   ========================================================================== */
 
-/*************************************************/
-/* SHOP ONLINE PAGE */
 .section-bg-shop-online {
     background-image:
         radial-gradient(ellipse farthest-corner at right bottom,
@@ -309,7 +323,6 @@
     background-repeat: no-repeat;
     background-position: center center;
     background-size: cover;
-
     height: 850px;
     width: 100%;
     padding: 5rem 7.5rem;

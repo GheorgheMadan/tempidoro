@@ -1,10 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
+/* ==========================================================================
+   0) FONT & ROOT VARS
+   ========================================================================== */
 
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap');
 
 :root {
     --font-family-sans-serif: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     --font-family-monospace: SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
+
+/* ==========================================================================
+   1) BASE / RESET / TIPOGRAFIA
+   ========================================================================== */
 
 body {
     font-family: 'Poppins', sans-serif;
@@ -26,7 +33,11 @@ kbd {
     font-family: var(--font-family-monospace);
 }
 
-main {
+/* ==========================================================================
+   2) UTILITIES & HELPERS
+   ========================================================================== */
+
+.width-85 {
     width: 85%;
     margin: 0 auto;
 }
@@ -35,7 +46,31 @@ strong {
     font-weight: 700;
 }
 
-/* text center */
+.bg-gray {
+    background-color: #f5f2f2;
+}
+
+/* Messaggi di errore / container */
+.container-err {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.errText {
+    text-align: center;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+}
+
+.errSmall {
+    text-align: center;
+    font-size: 1rem;
+    margin-top: 1rem;
+}
+
+/* Testo & colori */
 .text-center {
     text-align: center;
 }
@@ -53,13 +88,13 @@ strong {
     color: #444 !important;
 }
 
-/* text title */
+/* Titoli */
 .text-title {
     font-size: 2.5rem !important;
     font-weight: 300 !important;
 }
 
-/* Margin */
+/* Spaziature */
 .mb-5 {
     margin-bottom: 3rem !important;
 }
@@ -68,11 +103,29 @@ strong {
     margin-top: 3rem !important;
 }
 
+.p-bottom {
+    padding-bottom: 3rem !important;
+}
+
 .m-top {
     margin-bottom: 0.5rem !important;
 }
 
-/* BUTTONS */
+/* Riga arancione sotto i titoli con classe .title */
+.title::after {
+    content: '';
+    display: block;
+    width: 451px;
+    height: 3px;
+    background-color: orange;
+    margin: 15px auto 0 !important;
+    border-radius: 2px;
+}
+
+/* ==========================================================================
+   3) BUTTONS
+   ========================================================================== */
+
 .btn {
     background-color: transparent !important;
     border: none !important;
@@ -122,13 +175,11 @@ strong {
     border: none;
 }
 
-/* BUTTON BIANCO */
 .white-button {
     color: white !important;
     border: 2px solid white !important;
 }
 
-/* HOVER ARANCIONE BUTTON BIANCO */
 .white-button:hover {
     color: orange !important;
     border: 2px solid orange !important;
@@ -144,19 +195,10 @@ strong {
     border-color: black !important;
 }
 
+/* ==========================================================================
+   4) JUMBOTRON (slider custom)
+   ========================================================================== */
 
-/* LINEA ARANCIONE */
-.title::after {
-    content: '';
-    display: block;
-    width: 451px;
-    height: 3px;
-    background-color: orange;
-    margin: 15px auto 0 !important;
-    border-radius: 2px;
-}
-
-/* JUMBOTRON */
 .jumbotron-slider {
     width: 100%;
     height: 500px;
@@ -204,7 +246,7 @@ strong {
     font-size: 18px;
 }
 
-/* pallini navigazione jumotron */
+/* Dots del jumbotron */
 .dots {
     display: flex;
     justify-content: center;
@@ -229,23 +271,16 @@ strong {
     background-color: #f5a623;
 }
 
-/* SEZIONE BIO STAFF in HomePage e SEZIONE SERVIZI IN OtticaPage */
-.cards-section-bg {
-    background-color: #f5f2f2;
-    padding: 6rem 0;
-}
+/* ==========================================================================
+   5) SEZIONE CARDS (staff / servizi NELLE PAGINE)
+   ========================================================================== */
 
 .cards-section {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 45px;
-    width: 85%;
-    margin: 0 auto;
     justify-content: center;
-}
-
-.cards-section .staff-card {
-    width: 29%;
+    padding: 90px 0;
 }
 
 .cards-section .icon-img {
@@ -277,7 +312,6 @@ strong {
     border-radius: 2px;
 }
 
-/* Padding immagine card nella OtticaPage */
 .p-icon-img {
     padding: 1.5rem;
 }
@@ -309,7 +343,10 @@ strong {
     line-height: 23px;
 }
 
-/* SPINNER LOADING */
+/* ==========================================================================
+   6) SPINNER LOADING
+   ========================================================================== */
+
 .spinner-wrapper {
     display: flex;
     justify-content: center;
@@ -344,9 +381,9 @@ strong {
     background-color: rgba(255, 255, 255, 0.8);
 }
 
-/* ========================= */
-/* ANIMAZIONI KEYFRAMES MENU */
-/* ========================= */
+/* ==========================================================================
+   7) ANIMAZIONI MENU (fade in/out)
+   ========================================================================== */
 
 .dropdown-anim {
     animation-duration: 0.4s;
@@ -354,7 +391,7 @@ strong {
     will-change: transform, opacity;
 }
 
-/* === Fade IN === */
+/* Fade IN */
 .fade-in {
     animation-name: fadeInDown;
     pointer-events: auto;
@@ -373,7 +410,7 @@ strong {
     }
 }
 
-/* === Fade OUT === */
+/* Fade OUT */
 .fade-out {
     animation-name: fadeOutUp;
     animation-duration: 0.5s;
@@ -393,17 +430,18 @@ strong {
     }
 }
 
-/*************************************************/
+/* ==========================================================================
+   8) OVERLAY IMMAGINE
+   ========================================================================== */
+
 .overlay-image-container {
     position: fixed;
-    /* Cambiato da relative a fixed */
     z-index: 9999;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
     background-color: rgba(51, 51, 51, 0.6);
-    /* Maggiore leggibilità con RGBA */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -418,7 +456,6 @@ strong {
     width: 70%;
     height: 80%;
     overflow: hidden;
-    /* Impedisce all'immagine di fuoriuscire dal contenitore */
 }
 
 .content-overlay .container-img {
@@ -438,5 +475,3 @@ strong {
 .container-button-overlay {
     margin-top: 20px;
 }
-
-/*************************************************/

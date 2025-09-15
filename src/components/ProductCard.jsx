@@ -30,8 +30,6 @@ export default memo(function ProductCard({ product }) {
     // genera lo slug dal titolo
     const slug = slugify(product?.title);
 
-    console.log("🌀 RENDER ProductCard", product.id);
-
     return (
         <div className="product-card">
             <div className="btn-fav-container">

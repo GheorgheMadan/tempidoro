@@ -2,7 +2,7 @@ import "../css/PagesStyle.css"
 
 export default function OtticaPage() {
     return (
-        <>
+        <main>
             {/*Jumbotron section */}
             <div className="jumbotron-slider" style={{ backgroundColor: "#f5f2f2" }}>
                 <div className="slider-track">
@@ -17,8 +17,8 @@ export default function OtticaPage() {
                 </div>
             </div>
             {/* SEZIONE SERVIZI */}
-            <section className="cards-section-bg">
-                <div className="cards-section">
+            <section className="bg-gray">
+                <div className="cards-section width-85">
                     <div className="card-section">
                         <div className="icon-img p-icon-img">
                             <img src="./otticaPage/analisi-visiva-img.svg" alt="analisi-visiva-img" />
@@ -135,6 +135,6 @@ export default function OtticaPage() {
                     </a>
                 </div>
             </section>
-        </>
+        </main>
     );
 }

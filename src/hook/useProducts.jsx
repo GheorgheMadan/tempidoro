@@ -3,7 +3,7 @@ import { useState } from "react";
 
 export default function useProducts() {
     // Lista prodotti caricati
-    const [products, setProducts] = useState([]);
+    const [products, setProducts] = useState(null);
 
     // Stato prodotto corrente (per esempio, per il dettaglio prodotto)
     const [product, setProduct] = useState(null);
@@ -130,7 +130,7 @@ export default function useProducts() {
                 setLoadingMore(true);
             } else {
                 setLoading(true);
-                setProducts([]);
+                setProducts(null);
                 setTotal(0);
             }
 

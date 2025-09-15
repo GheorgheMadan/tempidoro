@@ -2,7 +2,7 @@ import "../css/ContactsPage.css"
 
 export default function ContattiPage() {
     return (
-        <>
+        <main>
             {/*Jumbotron section */}
             <div className="jumbotron-slider" style={{ backgroundColor: "#f5f2f2" }}>
                 <div className="slider-track">
@@ -38,6 +38,6 @@ export default function ContattiPage() {
                     ></iframe>
                 </div>
             </section>
-        </>
+        </main>
     );
 }

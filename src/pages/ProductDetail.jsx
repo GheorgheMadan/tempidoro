@@ -1,13 +1,14 @@
-import { Link, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useGlobalProducts } from "../context/GlobalProducts";
 import { useEffect, useState } from "react";
 import "../css/ProductDetail.css";
 import AddToFavButton from "../components/AddToFavButton";
 import OverlayImage from "../components/OverlayImage";
+import Spinner from "../components/Spinner";
 
 export default function ProductDetail() {
 
-    const { fetchProductById, product, deslugyfyCategory } = useGlobalProducts();
+    const { fetchProductById, product, loading } = useGlobalProducts();
 
     const { slugAndId } = useParams(); // Ottieni l'ID del prodotto dalla URL
 
@@ -21,25 +22,30 @@ export default function ProductDetail() {
             await fetchProductById(id); // Fetch del prodotto specifico
         })()
     }, [id])
-    if (!product) {
-        return <p>Caricamento prodotto...</p>;
-    }
 
     // calocolo prezzo scontato 
-    const discount = `0.${product.discount}`
-    const discountedPriceCalc = (Number(product.price) - (Number(product.price) * Number(discount))).toFixed(2)
+    const discount = `0.${product?.discount}`
+    const discountedPriceCalc = (Number(product?.price) - (Number(product?.price) * Number(discount))).toFixed(2)
     const discountedPriceToModify = discountedPriceCalc.toString()
     const discountedPrice = discountedPriceToModify.replace(".", ",")
 
     // modifica prezzo 
-    const priceToModify = Number(product.price).toFixed(2)
+    const priceToModify = Number(product?.price).toFixed(2)
     const priceToModify2 = priceToModify.toString()
     const price = priceToModify2.replace(".", ",")
 
 
     return (
         <main>
-            <div className="product-detail-container">
+            <div className="container-err">
+                {loading && <Spinner />}
+                {!loading && !product && <h1 className="errText">Errore del server, riprova più tardi</h1>}
+                {!loading && product && Object.keys(product).length === 0 && (
+                    <h1 className="errText">Prodotto non trovato</h1>
+                )}
+            </div>
+
+            {!loading && product && Object.keys(product).length > 0 && < div className="product-detail-container">
                 <div className="product-image-container" onClick={() => setShowOverlay(true)}>
                     <img src={`/prodotti/${product?.image}`} alt={product?.title} />
                     <button className="btn-skin-1 btn-large">Visualizza</button>
@@ -50,40 +56,40 @@ export default function ProductDetail() {
                         <div>
                             {/* Descrizione prodotto sotto la lista */}
                             {product?.description && (
-                                <p>{product.description}</p>
+                                <p>{product?.description}</p>
                             )}
                             <ul>
                                 {/* 1. Categoria */}
                                 {product?.categoria && (
-                                    <li>Categoria: {product.categoria}</li>
+                                    <li>Categoria: {product?.categoria}</li>
                                 )}
                                 {/* 2. Marca */}
                                 {product?.brand && (
-                                    <li>Marca: {product.brand}</li>
+                                    <li>Marca: {product?.brand}</li>
                                 )}
                                 {/* 3. Codice */}
                                 {product?.codice && (
-                                    <li>Codice: {product.codice}</li>
+                                    <li>Codice: {product?.codice}</li>
                                 )}
                                 {/* 4. Collezione */}
                                 {product?.collezione && (
-                                    <li>Collezione: {product.collezione}</li>
+                                    <li>Collezione: {product?.collezione}</li>
                                 )}
                                 {/* 5. Materiale */}
                                 {product?.materiale && (
-                                    <li>Materiale: {product.materiale}</li>
+                                    <li>Materiale: {product?.materiale}</li>
                                 )}
                                 {/* 6. Genere */}
                                 {product?.genere && (
-                                    <li>Genere: {product.genere}</li>
+                                    <li>Genere: {product?.genere}</li>
                                 )}
                                 {/* 7. Garanzia */}
                                 {product?.garanzia && (
-                                    <li>Garanzia: {product.garanzia}</li>
+                                    <li>Garanzia: {product?.garanzia}</li>
                                 )}
                                 {/* 8. Confezione */}
                                 {product?.confezione && (
-                                    <li>Confezione: {product.confezione}</li>
+                                    <li>Confezione: {product?.confezione}</li>
                                 )}
                             </ul>
                         </div>
@@ -91,7 +97,7 @@ export default function ProductDetail() {
                             {product?.available || product?.stock > 0 ? (
                                 <div className="product-price-detail product-price">
                                     <div className="price-section">
-                                        {product.in_promozione ? (
+                                        {product?.in_promozione ? (
                                             <div className="discount-section discounted-price-detail">
                                                 <span className="original-price original-price-2">€ {price}</span>
                                                 <span className="detail-price">€ {discountedPrice}</span>
@@ -106,7 +112,7 @@ export default function ProductDetail() {
                                             Aggiungi al carrello
                                         </button>
                                         <div className="button-fav-detail">
-                                            <AddToFavButton product={product} />
+                                            {product && <AddToFavButton product={product} />}
                                         </div>
                                     </div>
                                 </div>
@@ -114,17 +120,19 @@ export default function ProductDetail() {
 
                                 <p className="out-of-stock">
                                     Prodotto non disponibile
-                                    <AddToFavButton product={product} />
+                                    {product && <AddToFavButton product={product} />}
                                 </p>
                             )}
                         </div>
                     </div>
                 </div>
-            </div>
-            {showOverlay &&
+            </div>}
+            {
+                showOverlay && product && !loading &&
                 <OverlayImage image={`/prodotti/${product?.image}`}
                     altText={product?.title}
-                    onClose={() => setShowOverlay(false)} />}
-        </main>
+                    onClose={() => setShowOverlay(false)} />
+            }
+        </main >
     )
 }

@@ -49,7 +49,7 @@ export default function CategoryPage() {
                 limit,
                 offset: 0,
                 append: false,
-                filters: null, // mai filters nel primo load
+                filters: null
             });
 
             await getCategoryFilterList(category.toLowerCase());
@@ -57,14 +57,12 @@ export default function CategoryPage() {
 
     }, [category]);
 
-    console.log('il primo totale è: ', firstTotal);
-
 
     useEffect(() => {
         if (!category) return;
 
         // fetch SEMPRE se prodotti sono 0 (dopo filtro che non trova niente)
-        const shouldFetch = (firstTotal > 40 && searchQuery === "") || total > 40 || products.length === 0 || firstTotal > 40;
+        const shouldFetch = (firstTotal > 40 && searchQuery === "") || total > 40 || products?.length === 0 || firstTotal > 40;
 
         if (!shouldFetch) return;
 
@@ -82,6 +80,8 @@ export default function CategoryPage() {
     // se il totale dei prodotti è =< 20 allora utilizzo useMemo per i filtri 
     const filteredProducts = useMemo(() => {
         const activeFilters = filters || {}; // fallback per evitare errori
+
+        if (!products) return;
 
         let filtered = [...products];
 
@@ -160,7 +160,7 @@ export default function CategoryPage() {
         });
     };
 
-    const noResults = !loading && !loadingMore && !searching && products.length === 0;
+    const noResults = !loading && !loadingMore && !searching && products?.length === 0;
 
     // funzione per chiudere il dropdown quando si clicca all'esterno
     useEffect(() => {
@@ -186,7 +186,7 @@ export default function CategoryPage() {
 
 
     return (
-        <main className="category-page">
+        <main className="category-page width-85">
             <h1 className="text-center">{category}</h1>
             {/* Sezione ricerca */}
             <div className='container-search'>
@@ -233,7 +233,7 @@ export default function CategoryPage() {
                 />
             </div>
 
-            <h4>{total <= 40 ? filteredProducts.length : total} articoli</h4>
+            <h4>{total <= 40 ? filteredProducts?.length : total} articoli</h4>
             <div className={`container-active-filters ${isActive ? "active" : ""}`}>
                 <ActiveFilters filters={filters} setFilters={setFilters} />
             </div>
@@ -245,16 +245,16 @@ export default function CategoryPage() {
             }
             <div className="container-products">
                 {total <= 40 ?
-                    filteredProducts.map(product => (
+                    filteredProducts?.map(product => (
                         <ProductCard key={product.id} product={product} />
                     )) :
-                    products.map(product => (
+                    products?.map(product => (
                         <ProductCard key={product.id} product={product} />
                     ))}
             </div>
 
             {
-                products.length < total && !loadingMore && (
+                products?.length < total && !loadingMore && (
                     <button onClick={handleLoadMore} className="btn-skin-1 btn-large">
                         Carica altri prodotti
                     </button>

@@ -1,0 +1,194 @@
+/* ===== HEADER ===== */
+header {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    background-color: rgb(255, 255, 255);
+    z-index: 1000;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+    transform: translateY(0);
+    transition: transform 0.4s ease-in-out;
+}
+
+/* Quando scrolli */
+header.shrink {
+    transform: translateY(-83px);
+}
+
+/* ===== NAV contenitore generale ===== */
+header nav {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
+
+}
+
+/* ===== LOGO (navbar-brand) ===== */
+header .navbar-brand {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 14px;
+    /* solo quando è visibile */
+    transition: margin-bottom 0.3s ease, transform 0.6s ease-in-out, opacity 0.6s ease-in-out;
+    transform: translateY(0);
+    opacity: 1;
+    height: auto;
+    overflow: hidden;
+    margin-top: 13px;
+}
+
+header .navbar-brand img {
+    max-height: 68px;
+}
+
+/* Nasconde il logo */
+header .navbar-brand.hide {
+    transform: translateY(-100%);
+    opacity: 0;
+    pointer-events: none;
+    margin-bottom: 0 !important;
+}
+
+/* ===== NAVBAR LIST ===== */
+header .navbar-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    transition: all 0.3s ease;
+}
+
+/* ===== NAVBAR ITEMS ===== */
+
+/* ===== LINK ===== */
+/* Base link */
+header .navbar-nav .link-a {
+    font-size: 16px;
+    font-weight: 500;
+    color: #343a40;
+    text-decoration: none;
+    transition: color 0.3s ease, background 0.3s ease;
+    padding: 14px 17px;
+    cursor: pointer;
+    position: relative;
+}
+
+/* Hover: linea arancione più in alto */
+header .navbar-nav .link-a::before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background-color: orange;
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+    transform-origin: center;
+}
+
+/* Attivo: sfondo arancio + bianco + disattiva effetto hover */
+header .navbar-nav .link-a.active {
+    background-color: orange;
+    color: white;
+    font-weight: 600;
+}
+
+header .navbar-nav .link-a:hover::before {
+    transform: scaleX(1);
+}
+
+/* SEZIONE DROPDOWN */
+
+/* Wrapper che posiziona il menu */
+.dropdown-wrapper {
+    position: relative;
+    display: inline-block;
+}
+
+/* Menu a tendina */
+#dropdown-menu {
+    position: absolute;
+    top: 120%;
+    left: -20px;
+    background-color: white;
+    border-radius: 10px;
+    max-height: 400px;
+    overflow-y: auto;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    padding: 10px;
+}
+
+/* Lista voci */
+#dropdown-menu ul {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+}
+
+#dropdown-menu ul>li:first-child a {
+    display: block;
+    border-bottom: 1px solid #e0e0e0;
+    padding: 10px;
+}
+
+/* Singole voci */
+#dropdown-menu li {
+    display: block;
+    width: 100%;
+    color: #333;
+    text-align: inherit;
+    white-space: nowrap;
+    background-color: transparent;
+    border: 0;
+    font-size: 0.875rem;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    padding: 0px 10px;
+}
+
+/* Hover */
+#dropdown-menu li:hover {
+    background-color: #f2f2f2;
+    border-radius: 4px;
+}
+
+#dropdown-menu li a {
+    display: block;
+    color: #343a40;
+    text-decoration: none;
+    font-size: 14px;
+    padding: 5px 0;
+}
+
+/* preferiti */
+.orange-heart {
+    fill: orange;
+    font-size: 1.4rem;
+    /* transform: translateY(2.5px); */
+}
+
+.heart-link.active .orange-heart {
+    fill: white !important;
+}
+
+.heart-icon-header {
+    position: relative;
+}
+
+.fav-count {
+    position: absolute;
+    top: 5px;
+    right: 6px;
+    font-size: 12px;
+    background-color: rgba(219, 219, 219, 0.589);
+    padding: 1px 5px;
+    border-radius: 30px;
+    font-weight: 600;
+}

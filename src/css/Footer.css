@@ -1,0 +1,100 @@
+footer {
+    background-color: #f5f2f2;
+}
+
+a {
+    text-decoration: none;
+}
+
+.orange-text {
+    color: orange;
+}
+
+.container-footer {
+    display: flex;
+    width: 80%;
+    margin: 0 auto;
+    padding: 40px;
+    gap: 20px;
+    justify-content: space-between;
+}
+
+.container-footer:nth-child(1) {
+    display: flex;
+    align-items: center;
+}
+
+.title-footer {
+    font-weight: 200;
+    font-size: 2.5rem;
+}
+
+
+
+
+/* card con indirizzo telefono email social */
+.container-cards-footer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 60px;
+    /* più spazio tra colonne */
+    row-gap: 30px;
+    /* meno spazio tra righe */
+    max-width: 1000px;
+}
+
+.card-footer:nth-child(odd) {
+    margin-right: 15px;
+}
+
+.card-footer:nth-child(even) {
+    margin-left: 15px;
+}
+
+.container-cards-footer .card-footer h5 {
+    font-size: 1.25rem;
+    font-weight: 400 !important;
+}
+
+
+.container-cards-footer .card-footer p,
+.container-cards-footer .card-footer a {
+    color: #333;
+    font-size: 13px;
+    font-weight: 500;
+}
+
+.social-icons {
+    margin-top: 7px;
+    display: flex;
+    gap: 10px;
+}
+
+.social-icons a {
+    padding: 6px;
+    border: 3px solid orange;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: orange;
+}
+
+.social-icons .icon {
+    width: 18px;
+    height: 18px;
+}
+
+/* banner footer */
+.footer-banner {
+    background-color: #f5a623;
+    text-align: center;
+    color: #333;
+    font-size: 13px;
+    padding: 10px 0;
+}
+
+.footer-banner p,
+a {
+    font-weight: 600;
+}

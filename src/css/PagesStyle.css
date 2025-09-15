@@ -1,0 +1,325 @@
+.evidence-section {
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+}
+
+.slick-slide {
+    padding: 0 7.5px;
+    display: flex !important;
+    align-items: stretch !important;
+    height: auto !important;
+}
+
+.slick-slide>div {
+    display: flex;
+    height: 100%;
+}
+
+.slick-arrow {
+    z-index: 10;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+    transition: background-color 0.3s ease;
+    cursor: pointer;
+}
+
+.slick-prev {
+    left: -40px;
+}
+
+.slick-next {
+    right: -45px;
+}
+
+.slick-arrow::before {
+    color: black;
+    font-size: 20px;
+}
+
+
+/* SEZIONE DESCRIZIONE HOMEPAGE */
+.homepage-description-section {
+    margin-top: 80px;
+}
+
+.homepage-description-section>p {
+    font-size: 18px;
+    text-align: center;
+    margin-bottom: 80px;
+    line-height: 30px;
+}
+
+
+/* SECTION OREFICERIA home page */
+.section-bg-tempi {
+    background-image:
+        radial-gradient(ellipse farthest-corner at right bottom,
+            #feda378f 0%,
+            #fdb93193 8%,
+            #9f792893 30%,
+            #8a6f2f88 40%,
+            transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top,
+            #ffffff 0%,
+            #ffffacd5 8%,
+            #d1b464cc 25%,
+            #5d4a1f9c 62.5%,
+            #5d4a1f9f 100%),
+        url("./imgHomePage/tempidoro_bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    height: 576px;
+    width: 100%;
+    padding: 7rem 10.5rem;
+}
+
+/* REGOLE GENERALI */
+.container-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    text-align: center;
+    line-height: 27px;
+}
+
+.container-content h1,
+.container-content i,
+.container-content span,
+.container-content button,
+.container-content p {
+    color: white;
+}
+
+.title-m-bottom {
+    margin-bottom: 32px;
+}
+
+/* REGOLE GENERALI */
+.container-content i {
+    font-weight: 500;
+    font-size: 18px;
+}
+
+/* REGOLE GENERALI */
+.container-content span {
+    align-self: flex-end;
+    font-weight: 500;
+    margin-top: 10px;
+}
+
+
+/* SEZIONE OTTICA HomePage e OtticaPage */
+.section-ottica {
+    display: flex;
+}
+
+.section-ottica .ottica-home-img-bg {
+    max-height: 500px !important;
+}
+
+/* IMMAGINE IN OTTICA PAGE */
+.section-ottica img {
+    width: 700px;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Riga arancione in sezione ottica in home page */
+.section-ottica .container-content-ottica .title-ottica-home:after {
+    content: '';
+    display: block;
+    width: 250%;
+    height: 2px;
+    background-color: orange;
+    margin: 20px auto 0;
+    border-radius: 2px;
+}
+
+/*************************************************/
+
+/*************************************************/
+/* OTTICA PAGE */
+.content-ottica {
+    font-weight: 500;
+    letter-spacing: 1px;
+
+}
+
+/* Riga arancione in ottica page */
+.title-ottica-page::after {
+    content: '';
+    display: block;
+    width: 54%;
+    height: 2px;
+    background-color: orange;
+    border-radius: 2px;
+    margin: 15px 0 30px;
+}
+
+.section-ottica .container-content-ottica {
+    align-items: flex-start;
+    padding: 90px 100px 40px 172px;
+}
+
+/* PADDING IN OTTICA PAGE */
+#p-ottica-page {
+    padding: 40px 100px 40px 172px !important;
+}
+
+.section-ottica .container-content-ottica i {
+    text-align: start;
+    margin-top: 30px;
+}
+
+/* SEZIONE LOGO BRANDS */
+.container-merch-img {
+    width: 85%;
+    margin: 55px auto;
+}
+
+.img-row {
+    display: flex;
+    justify-content: center;
+    gap: 45px;
+    /* spazio uniforme tra immagini */
+    margin-bottom: 15px;
+    flex-wrap: nowrap;
+    /* impedisce il wrapping */
+}
+
+.img-margin-right {
+    margin-right: 70px;
+}
+
+.img-row img {
+    height: 50px;
+    object-fit: contain;
+}
+
+.img-row2 {
+    gap: 20px;
+}
+
+/* sezione contatti in ottica page */
+.section-bg-ottica {
+    background-image:
+        radial-gradient(ellipse farthest-corner at right bottom,
+            #feda378f 0%,
+            #fdb93193 8%,
+            #9f792893 30%,
+            #8a6f2f88 40%,
+            transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top,
+            #ffffff 0%,
+            #ffffacd5 8%,
+            #d1b464cc 25%,
+            #5d4a1f9c 62.5%,
+            #5d4a1f9f 100%),
+        url("./otticaPage/ottica-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    height: 545px;
+    width: 100%;
+    padding: 7rem 10.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-bg-ottica p {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
+
+/*************************************************/
+
+/*************************************************/
+/* OREFICERIA PAGE */
+.container-img-oreficeria {
+    display: flex;
+}
+
+.container-img-oreficeria img {
+    max-width: 25%;
+}
+
+.section-bg-oreficeria {
+    background-image:
+        radial-gradient(ellipse farthest-corner at right bottom,
+            #feda378f 0%,
+            #fdb93193 8%,
+            #9f792893 30%,
+            #8a6f2f88 40%,
+            transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top,
+            #ffffff 0%,
+            #ffffacd5 8%,
+            #d1b464cc 25%,
+            #5d4a1f9c 62.5%,
+            #5d4a1f9f 100%),
+        url("./oreficeriaPage/oref-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    height: 545px;
+    width: 100%;
+    padding: 7rem 10.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/*************************************************/
+
+/*************************************************/
+/* SHOP ONLINE PAGE */
+.section-bg-shop-online {
+    background-image:
+        radial-gradient(ellipse farthest-corner at right bottom,
+            #feda378f 0%,
+            #fdb93193 8%,
+            #9f792893 30%,
+            #8a6f2f88 40%,
+            transparent 80%),
+        radial-gradient(ellipse farthest-corner at left top,
+            #ffffff 0%,
+            #ffffacd5 8%,
+            #d1b464cc 25%,
+            #5d4a1f9c 62.5%,
+            #5d4a1f9f 100%),
+        url("./shopImg/shop-page-bg.jpg");
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: cover;
+
+    height: 850px;
+    width: 100%;
+    padding: 5rem 7.5rem;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.section-bg-shop-online p {
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
